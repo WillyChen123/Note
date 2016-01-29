@@ -39,6 +39,8 @@ public class NoteList extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        return false;
+        note[position]="";
+        arrayAdapter.notifyDataSetChanged();
+        return true;
     }
 }
