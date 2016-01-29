@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Note</string>
+
+    <string name="edit_note_hint">記事</string>
 </resources>
