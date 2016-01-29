@@ -1,5 +1,6 @@
 package app.com.guansheng.note;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,7 +35,10 @@ public class NoteList extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Intent intent = new Intent(this,NoteDetail.class);
+        intent.putExtra("no",position);
+        intent.putExtra("note",note[position]);
+        startActivityForResult(intent, position);
     }
 
     @Override
