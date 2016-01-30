@@ -59,7 +59,8 @@ public class NoteList extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
+        update(position,"",position);
+        relist();
         return true;
     }
 
