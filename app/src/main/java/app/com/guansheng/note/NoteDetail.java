@@ -22,4 +22,13 @@ public class NoteDetail extends AppCompatActivity {
         editNote = (EditText) findViewById(R.id.editNote);
         editNote.setText(note);
     }
+
+    @Override
+    public void onBackPressed() {
+        note = editNote.getText().toString();
+        Intent intent = new Intent();
+        intent.putExtra("note",note);
+        setResult(RESULT_OK,intent);
+        finish();
+    }
 }
