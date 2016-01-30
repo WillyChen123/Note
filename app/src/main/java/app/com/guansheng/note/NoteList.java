@@ -73,6 +73,8 @@ public class NoteList extends AppCompatActivity implements AdapterView.OnItemCli
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (resultCode){
             case RESULT_OK:
+                update(requestCode,data.getStringExtra("note"),requestCode);
+                relist();
                 break;
         }
     }
