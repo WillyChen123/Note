@@ -36,8 +36,8 @@ public class NoteList extends AppCompatActivity implements AdapterView.OnItemCli
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(this,NoteDetail.class);
-        intent.putExtra("no",position);
-        intent.putExtra("note",note[position]);
+        intent.putExtra("no", position);
+        intent.putExtra("note", note[position]);
         startActivityForResult(intent, position);
     }
 
@@ -46,5 +46,15 @@ public class NoteList extends AppCompatActivity implements AdapterView.OnItemCli
         note[position]="";
         arrayAdapter.notifyDataSetChanged();
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (resultCode){
+            case RESULT_OK:
+                note[requestCode] = data.getStringExtra("note");
+                arrayAdapter.notifyDataSetChanged();
+                break;
+        }
     }
 }
