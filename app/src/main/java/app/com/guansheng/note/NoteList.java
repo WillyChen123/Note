@@ -54,7 +54,12 @@ public class NoteList extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        cursor.moveToPosition(position);
+        String note = cursor.getString(cursor.getColumnIndex(FORM[2]));
+        Intent intent = new Intent(this,NoteDetail.class);
+        intent.putExtra("no", position);
+        intent.putExtra("note", note);
+        startActivityForResult(intent, position);
     }
 
     @Override
